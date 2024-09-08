@@ -8,36 +8,18 @@ class Carros{
     marca;
     cor;
     gasto;
-    kilometro;
-    litros;
-    preco;
 
-    constructor(marca, cor, kilometro, litros){
+    constructor(marca, cor, gasto){
         this.marca = marca;
         this.cor = cor;
-        this.kilometro = kilometro;
-        this.litros = litros;
-        this.gasto = kilometro / litros;
+        this.gasto = gasto;
+
+    }
+    calculo(distancia, precoComb){
+        return distancia * this.gasto * precoComb;
     }
 }
 
-const chevrolet = new Carros('Chevrolet', 'Vermelho', 60, 14);
-const renault = new Carros('Renault', 'Azul', 90, 20);
-const fiat = new Carros('Fiat', 'Prata', 1, 12)
-const gasolina = 5.57;
+const uno = new Carros('Fiat', 'Prata', 1 / 12);
 
-function organizar (carro1){
-    if (carro1.marca === 'Chevrolet'){
-        const preco = carro1.gasto * gasolina;
-        console.log(`A marca do carro é ${carro1.marca}, sua cor é ${carro1.cor} e gasta em média ${carro1.gasto.toFixed(2)}l, sendo o custo da viagem R$${preco.toFixed(2)}`)
-    }
-    else if (carro1.marca === 'Renault'){
-        const preco = carro1.gasto * gasolina;
-        console.log(`A marca do carro é ${carro1.marca}, sua cor é ${carro1.cor} e gasta em média ${carro1.gasto.toFixed(2)} litros, sendo o custo da viagem R$${preco.toFixed(2)}`)
-    }
-    else if (carro1.marca === 'Fiat'){
-        const preco = carro1.gasto * gasolina;
-        console.log(`A marca do carro é ${carro1.marca}, sua cor é ${carro1.cor} e gasta em média ${carro1.gasto.toFixed(2)} litros, sendo o custo da viagem R$${preco.toFixed(2)}`)
-    }
-}
-organizar(fiat);
+console.log(uno.calculo( 70, 5).toFixed(2));
